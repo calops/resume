@@ -1,0 +1,13 @@
+# Typst output
+*.pdf
+
+# Nix
+result
+result-*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
