@@ -19,85 +19,112 @@
   },
   "skills": {
     "technical": [
-      "ALGORITHMICS", "CONSTRAINT PROGRAMMING", "DATA MINING", "FORMAL LOGIC", "GENETIC ALGORITHMS", "LANGUAGE THEORY", "LIE ALGEBRA", "LOGICAL PROGRAMMING WITH PROLOG", "MACHINE LEARNING", "MODEL THEORY", "MULTI-AGENT SYSTEMS", "NEURAL NETWORKS", "ROBOTICS", "SPEECH PROCESSING", "TEXT MINING"
+      "Rust",
+      "C",
+      "C++",
+      "Python",
+      "Elixir",
+      "Linux",
+      "Nix",
+      "Docker",
+      "Terraform",
+      "Kubernetes",
+      "AWS"
     ],
-    "languages": [
-      "French (Native)",
-      "English (Full Professional)"
-    ]
+    "languages": ["French (Native)", "English (Full Professional)"]
   },
   "experience": [
     {
       "title": "Freelance Software Engineer",
-      "company": "Freelance",
-      "location": "Paris, Île-de-France, France - Hybrid",
-      "dates": "Juin 2025 - Présent",
+      "company": "Kiro",
+      "location": "Paris, France",
+      "dates": "2025 - Présent",
       "description": "",
       "skills": []
     },
     {
       "title": "Senior Software Engineer",
       "company": "Sonio",
-      "location": "Paris, Île-de-France, France - On-site",
-      "dates": "Avril 2024 - Juin 2025",
+      "location": "Paris, France",
+      "dates": "2024 - 2025",
       "description": "",
       "skills": []
     },
     {
       "title": "Software Engineer",
       "company": "Stockly",
-      "location": "Paris, Île-de-France, France - On-site",
-      "dates": "Sep 2022 - Sep 2023",
+      "location": "Paris, France",
+      "dates": "2022 - 2023",
       "description": "",
       "skills": ["PostgreSQL", "Rust (Programming Language)"]
     },
     {
       "title": "Software Engineer",
       "company": "PayPlug",
-      "location": "Paris, Île-de-France, France - On-site",
-      "dates": "Avr 2020 - Sep 2022",
+      "location": "Paris, France",
+      "dates": "2020 - 2022",
       "description": "",
-      "skills": ["Python (Programming Language)", "PostgreSQL", "RabbitMQ", "Elasticsearch"]
+      "skills": [
+        "Python (Programming Language)",
+        "PostgreSQL",
+        "RabbitMQ",
+        "Elasticsearch"
+      ]
     },
     {
       "title": "Software Engineer",
       "company": "Murex",
-      "location": "Paris, Île-de-France, France - On-site",
-      "dates": "Oct 2015 - Aug 2019",
+      "location": "Paris, France",
+      "dates": "2015 - 2019",
       "description": "",
       "skills": ["C++", "C (Programming Language)", "Java"]
     },
     {
       "title": "R&D engineer",
       "company": "Leboncoin.fr",
-      "location": "Paris, Île-de-France, France - On-site",
-      "dates": "Apr 2014 - Jun 2015",
+      "location": "Paris, France",
+      "dates": "2014 - 2015",
       "description": "Support and enhancement of an automated moderation platform for high-volume and high-frequency ads.\n*Technologies Involved:* Python, C, Machine learning",
-      "skills": ["Python (Programming Language)", "C (Programming Language)", "Machine Learning"]
+      "skills": [
+        "Python (Programming Language)",
+        "C (Programming Language)",
+        "Machine Learning"
+      ]
     },
     {
       "title": "R&D engineer",
       "company": "Dassault Systèmes",
-      "location": "Paris, Île-de-France, France - On-site",
-      "dates": "Nov 2012 - Apr 2014",
+      "location": "Paris, France",
+      "dates": "2012 - 2014",
       "description": "",
-      "skills": ["C++", "C (Programming Language)", "Java", "Text Mining", "Machine Learning"]
+      "skills": [
+        "C++",
+        "C (Programming Language)",
+        "Java",
+        "Text Mining",
+        "Machine Learning"
+      ]
     },
     {
       "title": "Software Engineer Intern",
       "company": "Siemens Corporate Research",
-      "location": "Princeton, New Jersey, United States - On-site",
-      "dates": "Feb 2012 - Aug 2012",
+      "location": "Princeton, New Jersey, United States",
+      "dates": "2012 - 2012",
       "description": "Six months internship. Image processing (tractography) on MRI data.",
       "skills": ["C++", "Medical Imaging", "Image Processing"]
     },
     {
       "title": "Software Engineer Intern",
       "company": "CNRS",
-      "location": "Marseille, Provence-Alpes-Côte d'Azur, France - On-site",
-      "dates": "Sep 2010 - Jan 2011",
+      "location": "Marseille, Provence-Alpes-Côte d'Azur, France",
+      "dates": "2010 - 2011",
       "description": "Six months internship. Image processing (tractography) on MRI data.",
-      "skills": ["C++", "C (Programming Language)", "Medical Imaging", "Image Processing"]
+      "skills": [
+        "C++",
+        "C (Programming Language)",
+        "Medical Imaging",
+        "Image Processing"
+      ]
     }
   ],
   "education": [
@@ -119,8 +146,9 @@
   "organizations": [
     {
       "name": "42 REGISTRY",
-      "role": "Co-founder & Secretary (Jan 2010 - Present)",
+      "role": "Co-founder & Secretary (2010 - Present)",
       "description": "Association à but non lucratif, proposant un TLD (top-level domain) libre et indépendant de l'ICANN, sous une plateforme open-source : \".42\" http://www.42registry.org"
     }
   ]
 }
+
