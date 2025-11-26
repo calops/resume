@@ -7,19 +7,40 @@
 )
 
 #set text(
-  font: "Linux Libertine",
+  font: "Aporetic Sans",
   size: 10pt,
 )
 
 #set par(justify: true)
 
+#let accent_color = rgb("#0D6C44")
+
+#let icon(codepoint) = {
+  text(font: "Symbols Nerd Font Mono", codepoint, fill: accent_color)
+}
+
 // Header styling
-#let header(name, tagline) = {
-  align(center)[
-    #text(size: 24pt, weight: "bold")[#name]
-    #v(0.3em)
-    #text(size: 12pt, style: "italic")[#tagline]
-  ]
+#let header(name, tagline, logo_path: none) = {
+  if logo_path != none {
+    grid(
+      columns: (auto, 1fr),
+      align: top,
+      image(logo_path, height: 4em), // Adjust height as needed
+      [
+        #align(center)[
+          #text(size: 24pt, weight: "bold", fill: accent_color)[#name]
+          #v(0.3em)
+          #text(size: 12pt, style: "italic")[#tagline]
+        ]
+      ]
+    )
+  } else {
+    align(center)[
+      #text(size: 24pt, weight: "bold")[#name]
+      #v(0.3em)
+      #text(size: 12pt, style: "italic")[#tagline]
+    ]
+  }
 }
 
 // Contact info styling
@@ -31,36 +52,67 @@
 
 // Section styling
 #let section(title) = {
-  v(0.8em)
-  text(size: 12pt, weight: "bold")[#title]
-  line(length: 100%, stroke: 0.5pt)
-  v(0.3em)
+  v(0.4em)
+  text(size: 12pt, weight: "bold", fill: accent_color)[#title]
+  v(-0.7em)
+  line(length: 100%, stroke: 0.5pt + accent_color)
+  v(0.1em)
 }
 
 // Experience entry styling
-#let experience(title, company, location, dates, description) = {
-  grid(
-    columns: (1fr, auto),
-    row-gutter: 0.3em,
-    [*#title* at #company], [#dates],
-    [#location], [],
-  )
-  v(0.2em)
-  description
+#let experience(title, company, location, dates, description, skills: none) = {
+  // Prepare content blocks for the grid cells
+  let title_company_cell = [#text(weight: "bold")[#title] at #company]
+  let dates_cell = [#dates]
+  let location_cell = [#location]
+
+  block(
+    inset: (x: 1em, y: 0.5em),
+    radius: 4pt,
+    stroke: 0.5pt,
+    fill: rgb("#f9f9f9"),
+    width: 100%,
+    grid(
+      columns: (1fr, auto),
+      row-gutter: 0.3em,
+      title_company_cell, dates_cell,
+      location_cell, [],
+    )
+        )
+        if description != "" {    block(
+      inset: (x: 1em),
+      [#description]
+    )
+  }
+  if skills != none and skills.len() > 0 {
+    block(
+      inset: (x: 1em),
+      [#text(weight: "bold")[Skills:] #skills.join(", ")]
+    )
+  }
   v(0.5em)
 }
 
 // Education entry styling
 #let education(degree, school, location, dates, details: none) = {
-  grid(
-    columns: (1fr, auto),
-    row-gutter: 0.3em,
-    [*#degree*], [#dates],
-    [#school, #location], [],
+  block(
+    inset: (x: 1em, y: 0.5em),
+    radius: 4pt,
+    stroke: 0.5pt,
+    fill: rgb("#f9f9f9"),
+    width: 100%,
+    grid(
+      columns: (1fr, auto),
+      row-gutter: 0.3em,
+      [*#degree*], [#dates],
+      [#school, #location], [],
+    )
   )
   if details != none {
-    v(0.2em)
-    details
+    block(
+      inset: (x: 1em), // Align details with the box content
+      details
+    )
   }
   v(0.5em)
 }
@@ -74,71 +126,69 @@
 // Resume Content
 // ==========================================
 
+#let data = json("resume_data.json")
+
 #header(
-  "Your Name",
-  "Your Title / Tagline",
+  data.header.name,
+  data.header.tagline,
+  logo_path: data.header.logo_path,
 )
 
 #v(0.5em)
 
 #contact(
-  "email@example.com",
-  "+1 (555) 123-4567",
-  "City, Country",
-  "linkedin.com/in/yourprofile",
-  "github.com/yourusername",
-)
-
-#section("Experience")
-
-#experience(
-  "Job Title",
-  "Company Name",
-  "City, Country",
-  "Month Year – Present",
-)[
-  - Accomplished X by implementing Y, resulting in Z
-  - Led a team of N people to deliver project on time
-  - Improved system performance by X%
-]
-
-#experience(
-  "Previous Job Title",
-  "Previous Company",
-  "City, Country",
-  "Month Year – Month Year",
-)[
-  - Description of key responsibility and achievement
-  - Another significant accomplishment
-  - Technical skills utilized and impact made
-]
-
-#section("Education")
-
-#education(
-  "Degree Name",
-  "University Name",
-  "City, Country",
-  "Year – Year",
-  details: [
-    Relevant coursework, honors, or activities
-  ],
+  [#icon("") #link("mailto:" + data.contact.email, data.contact.email)],
+  [#icon("") #link("tel:" + data.contact.phone, data.contact.phone)],
+  [#icon("") #data.contact.location],
+  [#icon("") #link(data.contact.linkedin.url, data.contact.linkedin.username)],
+  [#icon("") #link(data.contact.github.url, data.contact.github.username)],
 )
 
 #section("Skills")
 
-*Technical:* #skills("Skill 1", "Skill 2", "Skill 3", "Skill 4", "Skill 5")
+*Technical:* #skills(..data.skills.technical)
 
-*Languages:* #skills("Language 1 (Native)", "Language 2 (Fluent)", "Language 3 (Basic)")
+*Languages:* #skills(..data.skills.languages)
+
+#section("Experience")
+
+#for exp in data.experience {
+  experience(
+    exp.title,
+    exp.company,
+    exp.location,
+    exp.dates,
+    exp.description,
+    skills: exp.skills
+  )
+}
+
+#section("Education")
+
+#for edu in data.education {
+  education(
+    edu.degree,
+    edu.school,
+    edu.location,
+    edu.dates,
+    details: [#edu.details]
+  )
+}
 
 #section("Projects")
 
-*Project Name* #h(1fr) _Technology Stack_
+#for proj in data.projects {
+  [
+    #text(weight: "bold")[#proj.name] #h(1fr) #text(style: "italic")[#proj.stack] \
+    #proj.description
+  ]
+}
 
-Brief description of the project, its purpose, and your role. Highlight key achievements or technical challenges overcome.
+#section("Organizations")
 
-#v(0.3em)
-
-*Another Project* #h(1fr) _Technology Stack_
-
-Description of another significant project that demonstrates your skills and experience.
+#for org in data.organizations {
+  [
+    #text(weight: "bold")[#org.name] #h(1fr) #text(style: "italic")[#org.role] \
+    #org.description
+  ]
+}

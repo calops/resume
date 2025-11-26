@@ -4,19 +4,22 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    aporetic.url = "github:calops/iosevka-aporetic";
+    aporetic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { nixpkgs, flake-utils, aporetic, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            typst
-            typst-lsp
-            typstfmt
+          buildInputs = [
+            pkgs.typst
+            pkgs.tinymist
+            aporetic.packages.${system}.aporetic-sans-prebuilt
+            pkgs.nerd-fonts.symbols-only
           ];
 
           shellHook = ''
