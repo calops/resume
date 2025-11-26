@@ -29,7 +29,8 @@
       "Docker",
       "Terraform",
       "Kubernetes",
-      "AWS"
+      "AWS",
+      "PostgreSQL"
     ],
     "languages": ["French (Native)", "English (Full Professional)"]
   },
@@ -38,37 +39,47 @@
       "title": "Freelance Software Engineer",
       "company": "Kiro",
       "location": "Paris, France",
-      "dates": "2025 - Présent",
+      "dates": "2025",
       "description": "",
-      "skills": []
+      "skills": ["Python", "MySQL", "Google Cloud", "Docker"]
     },
     {
-      "title": "Senior Software Engineer",
+      "title": "Lead Software Engineer",
       "company": "Sonio",
       "location": "Paris, France",
       "dates": "2024 - 2025",
       "description": "",
-      "skills": []
+      "skills": [
+        "Elixir",
+        "Typescript",
+        "React",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Nix"
+      ]
     },
     {
-      "title": "Software Engineer",
+      "title": "Senior Software Engineer",
       "company": "Stockly",
       "location": "Paris, France",
       "dates": "2022 - 2023",
       "description": "",
-      "skills": ["PostgreSQL", "Rust (Programming Language)"]
+      "skills": ["Rust", "Diesel", "PostgreSQL", "AWS", "Docker", "Kubernetes"]
     },
     {
-      "title": "Software Engineer",
+      "title": "Lead Software Engineer",
       "company": "PayPlug",
       "location": "Paris, France",
       "dates": "2020 - 2022",
       "description": "",
       "skills": [
-        "Python (Programming Language)",
+        "Python",
         "PostgreSQL",
         "RabbitMQ",
-        "Elasticsearch"
+        "Elasticsearch",
+        "AWS",
+        "Docker"
       ]
     },
     {
@@ -77,33 +88,23 @@
       "location": "Paris, France",
       "dates": "2015 - 2019",
       "description": "",
-      "skills": ["C++", "C (Programming Language)", "Java"]
+      "skills": ["C++", "C", "Java"]
     },
     {
-      "title": "R&D engineer",
+      "title": "Software Engineer",
       "company": "Leboncoin.fr",
       "location": "Paris, France",
       "dates": "2014 - 2015",
-      "description": "Support and enhancement of an automated moderation platform for high-volume and high-frequency ads.\n*Technologies Involved:* Python, C, Machine learning",
-      "skills": [
-        "Python (Programming Language)",
-        "C (Programming Language)",
-        "Machine Learning"
-      ]
+      "description": "Support and enhancement of an automated moderation platform for high-volume and high-frequency ads",
+      "skills": ["Python", "C", "Machine Learning"]
     },
     {
-      "title": "R&D engineer",
+      "title": "R&D Engineer",
       "company": "Dassault Systèmes",
       "location": "Paris, France",
       "dates": "2012 - 2014",
       "description": "",
-      "skills": [
-        "C++",
-        "C (Programming Language)",
-        "Java",
-        "Text Mining",
-        "Machine Learning"
-      ]
+      "skills": ["C++", "C", "Java", "Text Mining", "Machine Learning"]
     },
     {
       "title": "Software Engineer Intern",
@@ -119,12 +120,7 @@
       "location": "Marseille, Provence-Alpes-Côte d'Azur, France",
       "dates": "2010 - 2011",
       "description": "Six months internship. Image processing (tractography) on MRI data.",
-      "skills": [
-        "C++",
-        "C (Programming Language)",
-        "Medical Imaging",
-        "Image Processing"
-      ]
+      "skills": ["C++", "C", "Medical Imaging", "Image Processing"]
     }
   ],
   "education": [
@@ -151,4 +147,3 @@
     }
   ]
 }
-
