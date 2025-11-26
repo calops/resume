@@ -25,14 +25,15 @@
     grid(
       columns: (auto, 1fr),
       align: top,
-      image(logo_path, height: 4em), // Adjust height as needed
+      image(logo_path, height: 4em),
+      // Adjust height as needed
       [
         #align(center)[
           #text(size: 24pt, weight: "bold", fill: accent_color)[#name]
           #v(0.3em)
           #text(size: 12pt, style: "italic")[#tagline]
         ]
-      ]
+      ],
     )
   } else {
     align(center)[
@@ -53,19 +54,21 @@
 // Section styling
 #let section(title) = {
   v(0.4em)
-  text(size: 12pt, weight: "bold", fill: accent_color)[#title]
-  v(-0.7em)
-  line(length: 100%, stroke: 0.5pt + accent_color)
+  grid(
+    columns: (auto, 1fr),
+    column-gutter: 1em,
+    align: horizon,
+    text(size: 12pt, weight: "bold", fill: accent_color)[#title],
+    line(length: 100%, stroke: 2pt + accent_color)
+  )
   v(0.1em)
 }
 
 // Experience entry styling
 #let experience(title, company, location, dates, description, skills: none) = {
-  // Prepare content blocks for the grid cells
   let title_company_cell = [#text(weight: "bold")[#title] at #company]
   let dates_cell = [#dates]
   let location_cell = [#location]
-
   block(
     inset: (x: 1em, y: 0.5em),
     radius: 4pt,
@@ -78,8 +81,9 @@
       title_company_cell, dates_cell,
       location_cell, [],
     )
-        )
-        if description != "" {    block(
+  )
+  if description != "" {
+    block(
       inset: (x: 1em),
       [#description]
     )
@@ -104,7 +108,7 @@
     grid(
       columns: (1fr, auto),
       row-gutter: 0.3em,
-      [*#degree*], [#dates],
+      [#text(weight: "bold")[#degree]], [#dates],
       [#school, #location], [],
     )
   )
@@ -159,7 +163,7 @@
     exp.location,
     exp.dates,
     exp.description,
-    skills: exp.skills
+    skills: exp.skills,
   )
 }
 
@@ -171,7 +175,7 @@
     edu.school,
     edu.location,
     edu.dates,
-    details: [#edu.details]
+    details: [#edu.details],
   )
 }
 
@@ -179,7 +183,9 @@
 
 #for proj in data.projects {
   [
-    #text(weight: "bold")[#proj.name] #h(1fr) #text(style: "italic")[#proj.stack] \
+    #text(weight: "bold")[#proj.name] #h(1fr) #text(
+      style: "italic",
+    )[#proj.stack] \
     #proj.description
   ]
 }
