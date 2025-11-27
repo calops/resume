@@ -18,6 +18,7 @@
           buildInputs = [
             pkgs.typst
             pkgs.tinymist
+            pkgs.typstyle
             aporetic.packages.${system}.aporetic-sans-prebuilt
             pkgs.nerd-fonts.symbols-only
           ];

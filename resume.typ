@@ -93,7 +93,7 @@
   if description != "" {
     [#description]
   }
-  v(0.5em) // Space before skills if description is present
+  parbreak() // Line break between description and skills
   if skills != none and skills.len() > 0 {
     [
       #skills.map(skill => pill(skill)).join(h(0.5em))
