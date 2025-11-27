@@ -49,7 +49,7 @@
       "company": "Kiro",
       "location": "Paris, France",
       "dates": "2025",
-      "description": "",
+      "description": "Contributed to the core API managing lab reports for patients and practitioners. Designed and implemented a granular report access scope system, enabling compatibility with multiple recipients and varying permission levels.",
       "skills": [
         "Python",
         "MySQL",
@@ -62,12 +62,14 @@
       "company": "Sonio",
       "location": "Paris, France",
       "dates": "2024 - 2025",
-      "description": "",
+      "description": "Led the Growth team to improve practitioner and patient experiences. Managed full project lifecycles from design to deployment while mentoring juniors. Key projects:\n- Overhauled the dashboard search system to allow real-time searching and granular filtering.\n- Implemented manual appointment creation, decoupling the process from the automated worklist.",
       "skills": [
         "Elixir",
         "Typescript",
         "React",
         "PostgreSQL",
+        "Elasticsearch",
+        "RabbitMQ",
         "AWS",
         "Docker",
         "Nix"
@@ -78,7 +80,7 @@
       "company": "Stockly",
       "location": "Paris, France",
       "dates": "2022 - 2023",
-      "description": "",
+      "description": "Contributed to the Engine team on the core inventory arbitration network using Rust full-time. Worked autonomously on new features, maintenance, and performance optimization for both code and database. Integrated new e-commerce platforms into the modular connector system.",
       "skills": [
         "Rust",
         "Diesel",
@@ -93,7 +95,7 @@
       "company": "PayPlug",
       "location": "Paris, France",
       "dates": "2020 - 2022",
-      "description": "",
+      "description": "Lead Software Engineer in the Scale & Growth team. Focused on improving platform availability, reliability, and performance. Managed project lifecycles from specification to implementation while mentoring juniors. Key achievements:\n- Implemented asynchronous messaging between microservices to enhance reliability and performance.\n- Overhauled the billing microservice.",
       "skills": [
         "Python",
         "PostgreSQL",
@@ -108,7 +110,7 @@
       "company": "Murex",
       "location": "Paris, France",
       "dates": "2015 - 2019",
-      "description": "",
+      "description": "Member of the Core team responsible for a legacy C/C++ codebase. Led refactoring efforts towards modern C++ to provide robust interfaces and libraries, significantly improving developer productivity and system reliability company-wide.",
       "skills": [
         "C++",
         "C",
@@ -120,7 +122,7 @@
       "company": "Leboncoin.fr",
       "location": "Paris, France",
       "dates": "2014 - 2015",
-      "description": "Support and enhancement of an automated moderation platform for high-volume and high-frequency ads",
+      "description": "Enhanced the automated moderation platform to detect fraudulent and undesirable submissions in a high-volume, high-frequency environment. Developed and maintained the back-office interface for system configuration. Implemented and optimized machine learning algorithms, establishing automated testing frameworks to evaluate and ensure performance.",
       "skills": [
         "Python",
         "C",
@@ -132,7 +134,7 @@
       "company": "Dassault Systèmes",
       "location": "Paris, France",
       "dates": "2012 - 2014",
-      "description": "",
+      "description": "Contributed to the development of a new high-performance search engine for arbitrarily structured data. Designed, implemented, and optimized the query language responsible for requesting, aggregating, and compiling data, meeting strict performance and versatility requirements.",
       "skills": [
         "C++",
         "C",
@@ -146,7 +148,7 @@
       "company": "Siemens Corporate Research",
       "location": "Princeton, New Jersey, United States",
       "dates": "2012 - 2012",
-      "description": "Six months internship. Image processing (tractography) on MRI data.",
+      "description": "Implemented, optimized, and evaluated novel tractography algorithms for brain MRI data based on cutting-edge research papers.",
       "skills": [
         "C++",
         "Medical Imaging",
@@ -158,7 +160,7 @@
       "company": "CNRS",
       "location": "Marseille, Provence-Alpes-Côte d'Azur, France",
       "dates": "2010 - 2011",
-      "description": "Six months internship. Image processing (tractography) on MRI data.",
+      "description": "Overhauled the data processing workflow to drastically reduce tractography computation time for high-resolution MRI data from new generation machines.",
       "skills": [
         "C++",
         "C",
