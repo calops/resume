@@ -28,17 +28,15 @@
       image(logo_path, height: 4em),
       // Adjust height as needed
       [
-        #align(center)[
-          #text(size: 24pt, weight: "bold", fill: accent_color)[#name]
-          #v(0.3em)
+        #align(right)[
+          #text(size: 24pt, weight: "bold", fill: accent_color)[#name] \
           #text(size: 12pt, style: "italic")[#tagline]
         ]
       ],
     )
   } else {
     align(center)[
-      #text(size: 24pt, weight: "bold")[#name]
-      #v(0.3em)
+      #text(size: 24pt, weight: "bold")[#name] \
       #text(size: 12pt, style: "italic")[#tagline]
     ]
   }
@@ -58,8 +56,7 @@
     columns: (auto, 1fr),
     column-gutter: 1em,
     align: horizon,
-    text(size: 12pt, weight: "bold", fill: accent_color)[#title],
-    line(length: 100%, stroke: 2pt + accent_color)
+    text(size: 12pt, weight: "bold", fill: accent_color)[#title], line(length: 100%, stroke: 2pt + accent_color),
   )
   v(0.1em)
 }
@@ -74,7 +71,7 @@
     inset: (x: 0.5em, y: 0.1em),
     radius: 4pt,
     fill: accent_color.lighten(60%),
-    text(size: 8pt, content)
+    text(size: 8pt, content),
   )
 }
 
