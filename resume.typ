@@ -25,7 +25,7 @@
     grid(
       columns: (auto, 1fr),
       align: top,
-      image(logo_path, height: 4em),
+      image(logo_path, height: 5em),
       // Adjust height as needed
       [
         #align(right)[
@@ -138,7 +138,9 @@
 
 #section("Skills")
 
-*Technical:* #skills(..data.skills.technical)
+*Programming:* #skills(..data.skills.programming)
+
+*Technologies:* #skills(..data.skills.technologies)
 
 *Languages:* #skills(..data.skills.languages)
 

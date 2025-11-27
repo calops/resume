@@ -18,21 +18,30 @@
     }
   },
   "skills": {
-    "technical": [
+    "programming": [
       "Rust",
       "C",
       "C++",
       "Python",
       "Elixir",
+      "Typescript",
+      "Javascript",
+      "Lua"
+    ],
+    "technologies": [
       "Linux",
       "Nix",
       "Docker",
+      "React",
       "Terraform",
       "Kubernetes",
       "AWS",
       "PostgreSQL"
     ],
-    "languages": ["French (Native)", "English (Full Professional)"]
+    "languages": [
+      "English (Full Professional)",
+      "French (Native)"
+    ]
   },
   "experience": [
     {
@@ -41,7 +50,12 @@
       "location": "Paris, France",
       "dates": "2025",
       "description": "",
-      "skills": ["Python", "MySQL", "Google Cloud", "Docker"]
+      "skills": [
+        "Python",
+        "MySQL",
+        "Google Cloud",
+        "Docker"
+      ]
     },
     {
       "title": "Lead Software Engineer",
@@ -65,7 +79,14 @@
       "location": "Paris, France",
       "dates": "2022 - 2023",
       "description": "",
-      "skills": ["Rust", "Diesel", "PostgreSQL", "AWS", "Docker", "Kubernetes"]
+      "skills": [
+        "Rust",
+        "Diesel",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
     },
     {
       "title": "Lead Software Engineer",
@@ -88,7 +109,11 @@
       "location": "Paris, France",
       "dates": "2015 - 2019",
       "description": "",
-      "skills": ["C++", "C", "Java"]
+      "skills": [
+        "C++",
+        "C",
+        "Java"
+      ]
     },
     {
       "title": "Software Engineer",
@@ -96,7 +121,11 @@
       "location": "Paris, France",
       "dates": "2014 - 2015",
       "description": "Support and enhancement of an automated moderation platform for high-volume and high-frequency ads",
-      "skills": ["Python", "C", "Machine Learning"]
+      "skills": [
+        "Python",
+        "C",
+        "Machine Learning"
+      ]
     },
     {
       "title": "R&D Engineer",
@@ -104,7 +133,13 @@
       "location": "Paris, France",
       "dates": "2012 - 2014",
       "description": "",
-      "skills": ["C++", "C", "Java", "Text Mining", "Machine Learning"]
+      "skills": [
+        "C++",
+        "C",
+        "Java",
+        "Text Mining",
+        "Machine Learning"
+      ]
     },
     {
       "title": "Software Engineer Intern",
@@ -112,7 +147,11 @@
       "location": "Princeton, New Jersey, United States",
       "dates": "2012 - 2012",
       "description": "Six months internship. Image processing (tractography) on MRI data.",
-      "skills": ["C++", "Medical Imaging", "Image Processing"]
+      "skills": [
+        "C++",
+        "Medical Imaging",
+        "Image Processing"
+      ]
     },
     {
       "title": "Software Engineer Intern",
@@ -120,7 +159,12 @@
       "location": "Marseille, Provence-Alpes-Côte d'Azur, France",
       "dates": "2010 - 2011",
       "description": "Six months internship. Image processing (tractography) on MRI data.",
-      "skills": ["C++", "C", "Medical Imaging", "Image Processing"]
+      "skills": [
+        "C++",
+        "C",
+        "Medical Imaging",
+        "Image Processing"
+      ]
     }
   ],
   "education": [
@@ -128,7 +172,7 @@
       "degree": "M.S. in Computer Science",
       "school": "EPITA",
       "location": "Paris, France",
-      "dates": "2008 – 2013",
+      "dates": "2009 – 2012",
       "details": "Major in Computer Science. Add relevant coursework or honors here."
     }
   ],
