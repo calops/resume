@@ -45,7 +45,7 @@
 // Contact info styling
 #let contact(..items) = {
   align(center)[
-    #items.pos().join(" • ")
+    #items.pos().join(text(fill: black)[ • ])
   ]
 }
 
