@@ -70,7 +70,7 @@
   box(
     inset: (x: 0.5em, y: 0.1em),
     radius: 4pt,
-    fill: accent_color.lighten(60%),
+    fill: luma(230),
     text(size: 8pt, content),
   )
 }
