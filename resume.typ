@@ -64,66 +64,57 @@
   v(0.1em)
 }
 
+// Skills styling
+#let skills(..items) = {
+  items.pos().join(" • ")
+}
+
+#let pill(content) = {
+  box(
+    inset: (x: 0.5em, y: 0.1em),
+    radius: 4pt,
+    fill: accent_color.lighten(60%),
+    text(size: 8pt, content)
+  )
+}
+
 // Experience entry styling
 #let experience(title, company, location, dates, description, skills: none) = {
   let title_company_cell = [#text(weight: "bold")[#title] at #company]
   let dates_cell = [#dates]
   let location_cell = [#location]
-  block(
-    inset: (x: 1em, y: 0.5em),
-    radius: 4pt,
-    stroke: 0.5pt,
-    fill: rgb("#f9f9f9"),
-    width: 100%,
-    grid(
-      columns: (1fr, auto),
-      row-gutter: 0.3em,
-      title_company_cell, dates_cell,
-      location_cell, [],
-    )
+  grid(
+    columns: (1fr, auto),
+    row-gutter: 0.3em,
+    title_company_cell, dates_cell,
+    location_cell, [],
   )
+  v(-0.5em) // Remove space before description
   if description != "" {
-    block(
-      inset: (x: 1em),
-      [#description]
-    )
+    [#description]
   }
+  v(0.5em) // Space before skills if description is present
   if skills != none and skills.len() > 0 {
-    block(
-      inset: (x: 1em),
-      [#text(weight: "bold")[Skills:] #skills.join(", ")]
-    )
+    [
+      #skills.map(skill => pill(skill)).join(h(0.5em))
+    ]
   }
   v(0.5em)
 }
 
 // Education entry styling
 #let education(degree, school, location, dates, details: none) = {
-  block(
-    inset: (x: 1em, y: 0.5em),
-    radius: 4pt,
-    stroke: 0.5pt,
-    fill: rgb("#f9f9f9"),
-    width: 100%,
-    grid(
-      columns: (1fr, auto),
-      row-gutter: 0.3em,
-      [#text(weight: "bold")[#degree]], [#dates],
-      [#school, #location], [],
-    )
+  grid(
+    columns: (1fr, auto),
+    row-gutter: 0.3em,
+    [#text(weight: "bold")[#degree]], [#dates],
+    [#school, #location], [],
   )
+  v(-0.5em) // Remove space before details
   if details != none {
-    block(
-      inset: (x: 1em), // Align details with the box content
-      details
-    )
+    details
   }
   v(0.5em)
-}
-
-// Skills styling
-#let skills(..items) = {
-  items.pos().join(" • ")
 }
 
 // ==========================================
