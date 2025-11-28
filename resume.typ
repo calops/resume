@@ -168,23 +168,3 @@
     details: [#edu.details],
   )
 }
-
-#section("Projects")
-
-#for proj in data.projects {
-  [
-    #text(weight: "bold")[#proj.name] #h(1fr) #text(
-      style: "italic",
-    )[#proj.stack] \
-    #proj.description
-  ]
-}
-
-#section("Organizations")
-
-#for org in data.organizations {
-  [
-    #text(weight: "bold")[#org.name] #h(1fr) #text(style: "italic")[#org.role] \
-    #org.description
-  ]
-}

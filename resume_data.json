@@ -177,19 +177,5 @@
       "dates": "2009 – 2012",
       "details": "Major in Computer Science. Add relevant coursework or honors here."
     }
-  ],
-  "projects": [
-    {
-      "name": "STRATA",
-      "stack": "Technology Stack",
-      "description": "Brief description of the project, its purpose, and your role. Highlight key achievements or technical challenges overcome."
-    }
-  ],
-  "organizations": [
-    {
-      "name": "42 REGISTRY",
-      "role": "Co-founder & Secretary (2010 - Present)",
-      "description": "Association à but non lucratif, proposant un TLD (top-level domain) libre et indépendant de l'ICANN, sous une plateforme open-source : \".42\" http://www.42registry.org"
-    }
   ]
 }
