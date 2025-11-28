@@ -3,7 +3,7 @@
 
 #set page(
   paper: "a4",
-  margin: (x: 1.5cm, y: 1.5cm),
+  margin: (x: 1.2cm, y: 1.2cm),
 )
 
 #set text(
@@ -75,10 +75,24 @@
   )
 }
 
+// Helper to format description with bullet points
+#let format_description(description) = {
+  if description == "" { return }
+  let lines = description.split("\n")
+  for line in lines {
+    if line.starts-with("- ") {
+      list.item(line.slice(2))
+    } else {
+      line
+      linebreak()
+    }
+  }
+}
+
 // Experience entry styling
 #let experience(title, company, location, dates, description, skills: none) = {
   let title_company_cell = [#text(weight: "bold")[#title] at #text(weight: "bold", fill: accent_color)[#company]]
-  let dates_cell = [#dates]
+  let dates_cell = [#align(right)[#dates]]
   let location_cell = [#location]
   grid(
     columns: (1fr, auto),
@@ -88,15 +102,14 @@
   )
   v(-0.5em) // Remove space before description
   if description != "" {
-    [#description]
+    format_description(description)
   }
-  parbreak() // Line break between description and skills
   if skills != none and skills.len() > 0 {
     [
       #skills.map(skill => pill(skill)).join(h(0.5em))
     ]
   }
-  v(0.5em)
+  v(0.8em)
 }
 
 // Education entry styling
@@ -104,14 +117,14 @@
   grid(
     columns: (1fr, auto),
     row-gutter: 0.3em,
-    [#text(weight: "bold")[#degree]], [#dates],
+    [#text(weight: "bold")[#degree]], [#align(right)[#dates]],
     [#school, #location], [],
   )
   v(-0.5em) // Remove space before details
   if details != none {
-    details
+    format_description(details)
   }
-  v(0.5em)
+  v(0.8em)
 }
 
 // ==========================================
@@ -138,11 +151,14 @@
 
 #section("Skills")
 
-*Programming:* #skills(..data.skills.programming)
-
-*Technologies:* #skills(..data.skills.technologies)
-
-*Languages:* #skills(..data.skills.languages)
+#grid(
+  columns: (auto, 1fr),
+  column-gutter: 1em,
+  row-gutter: 0.8em,
+  [*Programming:*], skills(..data.skills.programming),
+  [*Technologies:*], skills(..data.skills.technologies),
+  [*Languages:*], skills(..data.skills.languages),
+)
 
 #section("Experience")
 
@@ -165,6 +181,6 @@
     edu.school,
     edu.location,
     edu.dates,
-    details: [#edu.details],
+    details: edu.details,
   )
 }
