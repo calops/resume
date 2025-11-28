@@ -3,7 +3,7 @@
 
 #set page(
   paper: "a4",
-  margin: (x: 1.4cm, y: 1.2cm),
+  margin: (x: 1.4cm, y: 1.4cm),
 )
 
 #set text(
@@ -118,11 +118,14 @@
 // Education entry styling
 #let education(degree, school, location, dates, details: none) = {
   block(breakable: false)[
+    #let degree_school_cell = [#text(weight: "bold")[#degree] at #text(weight: "bold", fill: accent_color)[#school]]
+    #let dates_cell = [#align(right)[#dates]]
+    #let location_cell = [#location]
     #grid(
       columns: (1fr, auto),
       row-gutter: 0.3em,
-      [#text(weight: "bold")[#degree]], [#align(right)[#dates]],
-      [#school, #location], [],
+      degree_school_cell, dates_cell,
+      location_cell, [],
     )
     #v(-0.5em) // Remove space before details
     #if details != none {
