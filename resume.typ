@@ -3,7 +3,7 @@
 
 #set page(
   paper: "a4",
-  margin: (x: 1.2cm, y: 1.2cm),
+  margin: (x: 1.4cm, y: 1.2cm),
 )
 
 #set text(
@@ -24,7 +24,8 @@
   if logo_path != none {
     grid(
       columns: (auto, 1fr),
-      align: top,
+      align: horizon,
+      column-gutter: 2em,
       image(logo_path, height: 5em),
       // Adjust height as needed
       [
@@ -106,7 +107,6 @@
       format_description(description)
     }
     #if skills != none and skills.len() > 0 {
-      v(0.5em)
       [
         #skills.map(skill => pill(skill)).join(h(0.5em))
       ]
