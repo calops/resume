@@ -36,7 +36,8 @@
       "Terraform",
       "Kubernetes",
       "AWS",
-      "PostgreSQL"
+      "PostgreSQL",
+      "RabbitMQ"
     ],
     "languages": [
       "English (Full Professional)",
@@ -157,7 +158,7 @@
     },
     {
       "title": "Software Engineer Intern",
-      "company": "CNRS",
+      "company": "CNRS, Hôpital de la Timone",
       "location": "Marseille, Provence-Alpes-Côte d'Azur, France",
       "dates": "2010 - 2011",
       "description": "Overhauled the data processing workflow to drastically reduce tractography computation time for high-resolution MRI data from new generation machines.",

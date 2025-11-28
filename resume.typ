@@ -83,6 +83,7 @@
   for line in lines {
     if line.starts-with("- ") {
       list.item(line.slice(2))
+      v(-0.5em)
     } else {
       line
       linebreak()
