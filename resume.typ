@@ -91,40 +91,45 @@
 
 // Experience entry styling
 #let experience(title, company, location, dates, description, skills: none) = {
-  let title_company_cell = [#text(weight: "bold")[#title] at #text(weight: "bold", fill: accent_color)[#company]]
-  let dates_cell = [#align(right)[#dates]]
-  let location_cell = [#location]
-  grid(
-    columns: (1fr, auto),
-    row-gutter: 0.3em,
-    title_company_cell, dates_cell,
-    location_cell, [],
-  )
-  v(-0.5em) // Remove space before description
-  if description != "" {
-    format_description(description)
-  }
-  if skills != none and skills.len() > 0 {
-    [
-      #skills.map(skill => pill(skill)).join(h(0.5em))
-    ]
-  }
-  v(0.8em)
+  block(breakable: false)[
+    #let title_company_cell = [#text(weight: "bold")[#title] at #text(weight: "bold", fill: accent_color)[#company]]
+    #let dates_cell = [#align(right)[#dates]]
+    #let location_cell = [#location]
+    #grid(
+      columns: (1fr, auto),
+      row-gutter: 0.3em,
+      title_company_cell, dates_cell,
+      location_cell, [],
+    )
+    #v(-0.5em) // Remove space before description
+    #if description != "" {
+      format_description(description)
+    }
+    #if skills != none and skills.len() > 0 {
+      v(0.5em)
+      [
+        #skills.map(skill => pill(skill)).join(h(0.5em))
+      ]
+    }
+    #v(0.8em)
+  ]
 }
 
 // Education entry styling
 #let education(degree, school, location, dates, details: none) = {
-  grid(
-    columns: (1fr, auto),
-    row-gutter: 0.3em,
-    [#text(weight: "bold")[#degree]], [#align(right)[#dates]],
-    [#school, #location], [],
-  )
-  v(-0.5em) // Remove space before details
-  if details != none {
-    format_description(details)
-  }
-  v(0.8em)
+  block(breakable: false)[
+    #grid(
+      columns: (1fr, auto),
+      row-gutter: 0.3em,
+      [#text(weight: "bold")[#degree]], [#align(right)[#dates]],
+      [#school, #location], [],
+    )
+    #v(-0.5em) // Remove space before details
+    #if details != none {
+      format_description(details)
+    }
+    #v(0.8em)
+  ]
 }
 
 // ==========================================
