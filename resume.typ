@@ -1,5 +1,4 @@
-// Resume Template
-// Compile with: typst compile resume.typ
+
 
 #set page(
   paper: "a4",
@@ -19,7 +18,7 @@
   text(font: "Symbols Nerd Font Mono", codepoint, fill: accent_color)
 }
 
-// Header styling
+
 #let header(name, tagline, logo_path: none) = {
   if logo_path != none {
     grid(
@@ -27,7 +26,7 @@
       align: horizon,
       column-gutter: 2em,
       image(logo_path, height: 5em),
-      // Adjust height as needed
+
       [
         #align(right)[
           #text(size: 24pt, weight: "bold", fill: accent_color)[#name] \
@@ -43,14 +42,14 @@
   }
 }
 
-// Contact info styling
+
 #let contact(..items) = {
   align(center)[
     #items.pos().join(text(fill: black)[ • ])
   ]
 }
 
-// Section styling
+
 #let section(title) = {
   v(0.4em)
   grid(
@@ -62,7 +61,7 @@
   v(0.1em)
 }
 
-// Skills styling
+
 #let skills(..items) = {
   items.pos().join(" • ")
 }
@@ -76,7 +75,7 @@
   )
 }
 
-// Helper to format description with bullet points
+
 #let format_description(description) = {
   if description == "" { return }
   let lines = description.split("\n")
@@ -91,7 +90,7 @@
   }
 }
 
-// Experience entry styling
+
 #let experience(title, company, location, dates, description, skills: none) = {
   block(breakable: false)[
     #let title_company_cell = [#text(weight: "bold")[#title] at #text(weight: "bold", fill: accent_color)[#company]]
@@ -103,7 +102,7 @@
       title_company_cell, dates_cell,
       location_cell, [],
     )
-    #v(-0.5em) // Remove space before description
+    #v(-0.5em)
     #if description != "" {
       format_description(description)
     }
@@ -116,7 +115,7 @@
   ]
 }
 
-// Education entry styling
+
 #let education(degree, school, location, dates, details: none) = {
   block(breakable: false)[
     #let degree_school_cell = [#text(weight: "bold")[#degree] at #text(weight: "bold", fill: accent_color)[#school]]
@@ -128,7 +127,7 @@
       degree_school_cell, dates_cell,
       location_cell, [],
     )
-    #v(-0.5em) // Remove space before details
+    #v(-0.5em)
     #if details != none {
       format_description(details)
     }
@@ -136,9 +135,7 @@
   ]
 }
 
-// ==========================================
-// Resume Content
-// ==========================================
+
 
 #let data = json("resume_data.json")
 
