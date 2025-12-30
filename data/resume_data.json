@@ -2,7 +2,7 @@
   "header": {
     "name": "RÉMI LABEYRIE",
     "tagline": "Software Engineer",
-    "logo_path": "lambdasoft.svg"
+    "logo_path": "../assets/lambdasoft.svg"
   },
   "contact": {
     "email": "calops@lambdasoft.dev",

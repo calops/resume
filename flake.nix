@@ -30,22 +30,44 @@
           '';
         };
 
-        packages.default = pkgs.stdenv.mkDerivation {
-          name = "resume";
-          src = ./.;
-          buildInputs = [
-            pkgs.typst
-            aporetic.packages.${system}.aporetic-sans-prebuilt
-            pkgs.nerd-fonts.symbols-only
-          ];
-          buildPhase = ''
-            export TYPST_FONT_PATHS=${aporetic.packages.${system}.aporetic-sans-prebuilt}/share/fonts/truetype:${pkgs.nerd-fonts.symbols-only}/share/fonts/truetype
-            typst compile resume.typ resume.pdf
-          '';
-          installPhase = ''
-            mkdir -p $out
-            cp resume.pdf $out/
-          '';
+        packages = rec {
+          default = pdf;
+
+          pdf = pkgs.stdenv.mkDerivation {
+            name = "resume";
+            src = ./.;
+            buildInputs = [
+              pkgs.typst
+              aporetic.packages.${system}.aporetic-sans-prebuilt
+              pkgs.nerd-fonts.symbols-only
+            ];
+            buildPhase = ''
+              export TYPST_FONT_PATHS=${aporetic.packages.${system}.aporetic-sans-prebuilt}/share/fonts/truetype:${pkgs.nerd-fonts.symbols-only}/share/fonts/truetype
+              typst compile --root . src/pdf.typ resume.pdf
+            '';
+            installPhase = ''
+              mkdir -p $out
+              cp resume.pdf $out/
+            '';
+          };
+
+          web = pkgs.stdenv.mkDerivation {
+            name = "resume-web";
+            src = ./.;
+            buildInputs = [
+              pkgs.typst
+              aporetic.packages.${system}.aporetic-sans-prebuilt
+              pkgs.nerd-fonts.symbols-only
+            ];
+            buildPhase = ''
+              export TYPST_FONT_PATHS=${aporetic.packages.${system}.aporetic-sans-prebuilt}/share/fonts/truetype:${pkgs.nerd-fonts.symbols-only}/share/fonts/truetype
+              typst compile --root . --features html src/web.typ index.html
+            '';
+            installPhase = ''
+              mkdir -p $out
+              cp index.html $out/
+            '';
+          };
         };
       });
 }

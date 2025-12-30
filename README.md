@@ -18,6 +18,8 @@ This provides:
 - `typst` - The Typst compiler
 - `typst-lsp` - Language server for editor integration
 - `typstfmt` - Formatter for Typst files
+- `aporetic-sans` - Font used for the resume
+- `nerd-fonts` - Font used for icons
 
 ## Building
 
@@ -40,8 +42,3 @@ nix build
 ```
 
 The output PDF will be in `result/resume.pdf`.
-
-## Structure
-
-- `resume.typ` - Main resume source file
-- `flake.nix` - Nix flake for development environment and build
