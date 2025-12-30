@@ -33,8 +33,13 @@
         packages.default = pkgs.stdenv.mkDerivation {
           name = "resume";
           src = ./.;
-          buildInputs = [ pkgs.typst ];
+          buildInputs = [
+            pkgs.typst
+            aporetic.packages.${system}.aporetic-sans-prebuilt
+            pkgs.nerd-fonts.symbols-only
+          ];
           buildPhase = ''
+            export TYPST_FONT_PATHS=${aporetic.packages.${system}.aporetic-sans-prebuilt}/share/fonts/truetype:${pkgs.nerd-fonts.symbols-only}/share/fonts/truetype
             typst compile resume.typ resume.pdf
           '';
           installPhase = ''
