@@ -8,10 +8,18 @@
     aporetic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, flake-utils, aporetic, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      nixpkgs,
+      flake-utils,
+      aporetic,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        aporetic-sans = aporetic.packages.${system}.aporetic-sans-prebuilt;
       in
       {
         devShells.default = pkgs.mkShell {
@@ -19,7 +27,8 @@
             pkgs.typst
             pkgs.tinymist
             pkgs.typstyle
-            aporetic.packages.${system}.aporetic-sans-prebuilt
+            pkgs.nixfmt-rfc-style
+            aporetic-sans
             pkgs.nerd-fonts.symbols-only
           ];
 
@@ -30,44 +39,21 @@
           '';
         };
 
+        formatter = pkgs.nixfmt-rfc-style;
+
         packages = rec {
           default = pdf;
 
-          pdf = pkgs.stdenv.mkDerivation {
-            name = "resume";
-            src = ./.;
-            buildInputs = [
-              pkgs.typst
-              aporetic.packages.${system}.aporetic-sans-prebuilt
-              pkgs.nerd-fonts.symbols-only
-            ];
-            buildPhase = ''
-              export TYPST_FONT_PATHS=${aporetic.packages.${system}.aporetic-sans-prebuilt}/share/fonts/truetype:${pkgs.nerd-fonts.symbols-only}/share/fonts/truetype
-              typst compile --root . src/pdf.typ resume.pdf
-            '';
-            installPhase = ''
-              mkdir -p $out
-              cp resume.pdf $out/
-            '';
+          pdf = pkgs.callPackage ./package.nix {
+            inherit aporetic-sans;
+            isWeb = false;
           };
 
-          web = pkgs.stdenv.mkDerivation {
-            name = "resume-web";
-            src = ./.;
-            buildInputs = [
-              pkgs.typst
-              aporetic.packages.${system}.aporetic-sans-prebuilt
-              pkgs.nerd-fonts.symbols-only
-            ];
-            buildPhase = ''
-              export TYPST_FONT_PATHS=${aporetic.packages.${system}.aporetic-sans-prebuilt}/share/fonts/truetype:${pkgs.nerd-fonts.symbols-only}/share/fonts/truetype
-              typst compile --root . --features html src/web.typ index.html
-            '';
-            installPhase = ''
-              mkdir -p $out
-              cp index.html $out/
-            '';
+          web = pkgs.callPackage ./package.nix {
+            inherit aporetic-sans;
+            isWeb = true;
           };
         };
-      });
+      }
+    );
 }
