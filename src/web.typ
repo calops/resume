@@ -2,4 +2,4 @@
 
 #let data = json("../data/resume_data.json")
 
-#cv(data)
+#html.frame(cv(data))
