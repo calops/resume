@@ -2,43 +2,52 @@
 
 My resume built with [Typst](https://typst.app/).
 
-## Prerequisites
-
-This project uses [Nix](https://nixos.org/) with flakes for dependency management.
-
-## Development
-
-Enter the development shell:
-
-```bash
-nix develop
-```
-
-This provides:
-- `typst` - The Typst compiler
-- `typst-lsp` - Language server for editor integration
-- `typstfmt` - Formatter for Typst files
-- `aporetic-sans` - Font used for the resume
-- `nerd-fonts` - Font used for icons
-
 ## Building
 
-Compile the resume to PDF:
+This project uses [Nix](https://nixos.org/) with flakes for reproducible builds.
 
-```bash
-typst compile resume.typ
-```
+### PDF (Default)
 
-Watch for changes and automatically recompile:
-
-```bash
-typst watch resume.typ
-```
-
-Or build using Nix:
+To build the PDF version of the resume:
 
 ```bash
 nix build
 ```
 
-The output PDF will be in `result/resume.pdf`.
+The output will be available at `result/resume.pdf`.
+
+### Web (HTML)
+
+To build the HTML version:
+
+```bash
+nix build .#web
+```
+
+The output will be available at `result/index.html`.
+
+## Development
+
+To start a development shell with all dependencies (compiler, fonts, LSP, formatter):
+
+```bash
+nix develop
+```
+
+This shell provides:
+- `typst` - The Typst compiler
+- `tinymist` - Language server for editor integration
+- `typstyle` - Formatter for Typst files
+- `nixfmt-rfc-style` - Formatter for Nix files
+- `aporetic-sans` - The font family used in the resume
+- `nerd-fonts` - Icon font
+
+Inside the shell, you can manually compile or watch files:
+
+```bash
+# Compile to PDF
+typst compile --root . src/pdf.typ resume.pdf
+
+# Watch for changes
+typst watch --root . src/pdf.typ resume.pdf
+```
